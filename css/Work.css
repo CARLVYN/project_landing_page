@@ -1,0 +1,317 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;    
+    color: #333;
+    margin: 0; 
+    padding: 0;
+}
+ 
+header {
+    background-color: rgb(255, 179, 0);
+    color: rgb(237, 231, 231);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    box-shadow: 5px;
+    z-index: 1000; 
+    position: fixed;
+    width: 96%;
+}
+
+nav a {
+    color: rgb(253, 252, 252); 
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+} 
+
+nav a:hover {
+    background-color: rgba(19, 2, 103, 1.2);
+    border-radius: 5px; 
+}
+
+.hera {
+    background: url(/Imgs/e-learning.avif)no-repeat center center/cover;    
+    background-color: rgb(154, 152, 152);
+    color: white;
+    text-align: center;
+    padding: 250px 20px;
+    height: 100px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #e19704;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #744602;
+
+}
+
+.content-section {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    line-height: 35px;
+    text-align: justify;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #1a73e8;
+    font-size: 2em;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.card {
+    width: 300px;
+    height: 350px; 
+    perspective: 1000px;
+    margin: 10px;
+}
+
+/* 2. The element that will be rotated */
+.card-inner {
+    position: relative;
+    width: 100%;  
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s; /* Smooth transition for the flip */
+    transform-style: preserve-3d; /* Key for 3D space */
+    box-shadow: 10 4px 8px 10;
+    border-radius: 10px;
+}
+
+/* 3. Flip on hover! */
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* 4. Position and hide the backface of both sides */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; /* Hides the reverse side when not flipped */
+    display: flex;
+    flex-direction: column;
+    /* CHANGE 1: Use flex-start to allow image to occupy the top space */
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-front {
+    background-color: whitesmoke; /* Light background */
+    color: #333;
+}
+
+.card-back {
+    background: linear-gradient(270deg, rgb(57, 57, 241),rgb(227, 48, 48),violet);
+    color: white;
+    transform: rotateY(180deg); /* Start rotated so it's hidden */
+    justify-content: center; /* Center the text on the back */
+}
+
+/* CHANGE 2: New base styles for images to prevent overflow at all sizes */
+.card-front h3 img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 10px; /* Center the image and add margin below */
+}
+
+/* Styling for content within the cards */
+.card-front h3, .card-back h3 {
+    margin-top: 0;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container textarea {
+    width: 90%; 
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.map-embed {
+    height: 400px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+.form-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+footer {
+    background-color: rgb(4, 92, 92);
+    color: white;
+    text-align: center;
+    padding: 20px;
+} 
+
+.social-links a {
+    color: white;
+    font-size: 1.2em;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #ff9900;
+}
+
+.breadcrumbs{
+    display: none;
+    color: #1a73e8;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+
+/* --- MEDIA QUERIES --- */
+/* For screens smaller than 1200px (e.g., smaller desktops/large tablets) */
+@media (max-width: 1200px) {
+    header {
+        width: 94%; /* Adjust width for smaller screens */
+        padding: 15px 3%;
+    }
+}
+
+/* For screens smaller than 992px (e.g., tablets in portrait mode) */
+@media (max-width: 992px) {
+    .card-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+        gap: 30px; 
+    }
+
+    .card {
+        width: 80%; /* Make cards wider to fill the screen */
+        max-width: 400px; 
+        height: 380px; 
+        margin: 0; 
+    }
+    
+    .card-front h3 img {
+        height: 200px;
+        width: auto;
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+    .form-container {
+        grid-template-columns: 1fr; /* Stack form and info/map container vertically */
+        gap: 30px;
+    }
+    
+    .map-embed {
+        height: 300px;
+    }
+}
+
+/* For screens smaller than 768px (e.g., small tablets/large phones) */
+@media (max-width: 768px) {
+    /* Always show the menu icon (breadcrumbs) */
+    .breadcrumbs {
+        display: block;
+        font-size: 1.5em;
+        cursor: pointer;
+        color: rgb(253, 252, 252);
+    }
+    
+    /* Modify header to allow nav to drop down */
+    header {
+        flex-wrap: wrap; /* Allow items to wrap */
+        align-items: flex-start;
+        height: auto;
+        width: 90%;
+        padding: 15px 5%;
+    }
+
+    /* 1. Hide the navigation by default on mobile */
+    header nav {
+        display: none;
+        flex-direction: column;
+        width: 100%; /* Take full width below logo */
+        text-align: center;
+        margin-top: 10px;
+        background-color: rgba(255, 179, 0, 0.9); /* Slight transparency */
+    }
+    
+    header nav a {
+        display: block; /* Make links full width blocks */
+        margin: 5px 0;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* 2. Show the navigation when the 'active' class is added by JS */
+    header nav.active {
+        display: flex; 
+    }
+
+    .hera {
+        padding: 200px 20px; 
+        height: auto;
+    }
+
+    .hera h1 {
+        font-size: 1.8em;
+    }
+
+    .content-section {
+        padding: 40px 5%; 
+    }
+}
+
+/* For screens smaller than 576px (e.g., mobile phones) */
+@media (max-width: 576px) {
+    header .logo img {
+        height: 60px; 
+    }
+    
+    .hera h1 {
+        font-size: 1.5em;
+    }
+
+    .hera p {
+        font-size: 1em;
+    }
+    
+    .card {
+        width: 100%; 
+    }
+
+    .card-front h3 img {
+        height: 150px; 
+    }
+}
