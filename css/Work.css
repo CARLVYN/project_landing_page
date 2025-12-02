@@ -7,7 +7,7 @@ body {
 }
  
 header {
-    background-color: rgb(255, 179, 0);
+    background-color: rgb(0, 0, 0, 0.2);
     color: rgb(237, 231, 231);
     padding: 15px 30px;
     display: flex;
@@ -34,17 +34,20 @@ nav a:hover {
 }
 
 .hera {
-    background: url(../imgs/e-learning.avif)no-repeat center center/cover;    
     background-color: rgb(154, 152, 152);
     color: white;
     text-align: center;
     padding: 250px 20px;
     height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 1s ease-in-out;
 }
+
 
 .btn {
     display: inline-block;
-    background-color: #e19704;
+    background-color: #04e1bc;
     color: white;
     padding: 10px 25px;
     text-decoration: none;
@@ -89,8 +92,8 @@ h2 {
 /* 2. The element that will be rotated */
 .card-inner {
     position: relative;
-    width: 100%;  
-    height: 100%;
+    width: 90%;  
+    height: 90%;
     text-align: center;
     transition: transform 0.8s; /* Smooth transition for the flip */
     transform-style: preserve-3d; /* Key for 3D space */
@@ -106,8 +109,8 @@ h2 {
 /* 4. Position and hide the backface of both sides */
 .card-front, .card-back {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 75%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden; /* Hides the reverse side when not flipped */
     display: flex;
@@ -144,6 +147,41 @@ h2 {
     margin-top: 0;
 }
 
+.error{
+    border: 6px solid red!important; 
+}
+
+.error-message{
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Red border when invalid */
+.input-error {
+    border: 2px solid red !important;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+/* Green border when valid */
+.input-success {
+    border: 2px solid green !important;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Shake animation */
+.shake {
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
 .form-container input[type="text"],
 .form-container input[type="email"],
 .form-container textarea {
@@ -159,7 +197,7 @@ h2 {
     background-color: #ddd;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
     color: #666;
     margin-top: 15px;
     border-radius: 4px;
@@ -186,7 +224,7 @@ footer {
 }
 
 .social-links a:hover {
-    color: #ff9900;
+    color: #00ccff;
 }
 
 .breadcrumbs{
@@ -314,4 +352,12 @@ footer {
     .card-front h3 img {
         height: 150px; 
     }
+}
+
+/* Active nav highlight */
+nav a.active {
+    background-color: rgba(0, 42, 255, 0.9);
+    color: black !important;
+    border-radius: 5px;
+    font-weight: bold;
 }
